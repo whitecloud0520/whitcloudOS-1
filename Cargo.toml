@@ -1,0 +1,24 @@
+[workspace]
+members = [
+    "drivers/gpio",
+    "drivers/uart",
+    "drivers/mmc",
+    "rust-app",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["whitecloud0520"]
+license = "MIT"
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+opt-level = "z"     # 优化代码大小
+lto = true          # 链接时优化
+codegen-units = 1   # 更好的优化
+strip = true        # 移除调试符号

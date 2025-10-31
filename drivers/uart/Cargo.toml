@@ -1,0 +1,18 @@
+[package]
+name = "uart"
+version = "0.1.0"
+edition = "2021"
+authors = ["whitecloud0520"]
+description = "RK3588 UART driver for WhitcloudOS-1"
+license = "MIT"
+
+[dependencies]
+
+[lib]
+crate-type = ["rlib"]
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
